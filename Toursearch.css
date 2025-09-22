@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+    font-family:'Protest Guerrilla', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('images/header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+header {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.highlight {
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.nav-left {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav-left a.active {
+    border-bottom: 2px solid white;
+}
+
+.nav-right .loogout-btn {
+    background-color: #0099cc;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn{
+    background-color:  #0099cc;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px; /* This creates the pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.nav-right .logout-btn:hover {
+  background-color: #0077aa;
+}
+
+.hero-text h1 {
+    font-family: 'Protest Guerrilla', sans-serif;
+    font-size: 5vw;
+    margin-top: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text h2 {
+    font-family: 'Protest Guerrilla', sans-serif; /* match h1 */
+    font-size: 2vw; /* smaller than the main heading */
+    margin-top: 10px;
+    font-weight: normal;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.packages {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px 20px;
+}
+
+.package-card {
+    background: rgba(255, 255, 255, 0.70);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+    transform: scale(1.03);
+}
+
+.package-card img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.package-card h2 {
+    margin: 15px 0 10px;
+    color: #0099cc;
+    font-size: 20px;
+}
+
+.package-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.package-card span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #c2c093;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 17px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.price-btn:hover {
+  background-color: #7c7b5e;
+  transform: scale(1.05);
+}
+
+/* Search Bar */
+.search-bar {
+  background: rgba(255, 255, 255, 0.85); /* glass effect */
+  margin: 30px auto;
+  padding: 20px 30px;
+  border-radius: 15px;
+  width: 95%;
+  max-width: 950px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.search-bar form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Each field */
+.search-field {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-field .icon {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.search-field label {
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #000;
+}
+
+.search-field select,
+.search-field input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+}
+
+/* Search Button */
+.search-btn {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.search-btn:hover {
+  background: #0056b3;
+}
