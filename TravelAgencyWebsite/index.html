@@ -1,32 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Agency</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover Your Next Adventure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent-blue: #3a85ff;
+      --accent-blue-2: #2e63d6;
+      --accent-yellow: #ffcc00;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    body {
+      background-image: url("images/luzon.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 48px;
+      z-index: 10;
+    }
+
+    nav a {
+      margin: 0 16px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.45));
+    }
+
+    .auth-buttons button {
+      margin-left: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .auth-buttons .signup {
+      background: #fff;
+      color: #111;
+    }
+
+    .auth-buttons .login {
+      background: linear-gradient(180deg,var(--accent-blue),var(--accent-blue-2));
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(58,133,255,0.18);
+    }
+
+    .hero-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 48px 40px;
+      box-sizing: border-box;
+    }
+
+    .hero {
+      width: min(1100px, 94%);
+      max-width: 1100px;
+      text-align: left;
+      color: #fff;
+      position: relative;
+    }
+
+    .tagline {
+      margin: 0 0 6px 0;
+      font-weight: 800;
+      opacity: 0.95;
+    }
+
+    .headline {
+      font-family: 'Stardos Stencil', serif;
+      margin: 6px 0 12px 0;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 0.95;
+      font-size: clamp(36px, 6.5vw, 64px);
+      text-shadow: 0 6px 18px rgba(0,0,0,0.55);
+    }
+
+    .headline .yellow {
+      color: var(--accent-yellow);
+    }
+
+    .subcopy {
+      margin: 10px 0 28px 0;
+      font-size: 15px;
+      max-width: 780px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .card-wrap {
+      position: relative;
+      width: 100%;
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tabs {
+      position: absolute;
+      left: 48px;
+      top: -28px;
+      display: flex;
+      gap: 8px;
+      background: #fff;
+      padding: 6px;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+
+    .tabs button {
+      background: transparent;
+      border: none;
+      padding: 10px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      border-radius: 8px;
+      color: #222;
+    }
+
+    .tabs button.active {
+      background: #f2f2f2;
+    }
+
+    .search-card {
+      background: #fff;
+      color: #111;
+      border-radius: 12px;
+      padding: 18px 18px;
+      width: 86%;
+      max-width: 980px;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.28);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .field {
+      flex: 1;
+      min-width: 160px;
+      padding: 6px 10px;
+      box-sizing: border-box;
+    }
+
+    .label {
+      display: block;
+      font-size: 15px;
+      color: #333;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .value {
+      display: block;
+      font-size: 15px;
+      color: #6b6b6b;
+      font-weight: 700;
+    }
+
+    .search-button {
+      background: linear-gradient(180deg,var(--accent-blue),var(--accent-blue-2));
+      color: #fff;
+      border: none;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      min-width: 150px;
+      box-shadow: 0 12px 30px rgba(46,99,214,0.16);
+    }
+
+    .contact {
+      position: absolute;
+      left: 48px;
+      bottom: 36px;
+      color: var(--accent-yellow);
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 20px;
+    }
+
+    .contact .phone, .contact .addr {
+      color: #fff;
+      font-weight: 800;
+      margin-top: 10px;
+      font-size: 14px;
+      text-shadow: 0 6px 14px rgba(0,0,0,0.45);
+      max-width: 360px;
+    }
+
+    @media (max-width: 1000px) {
+      header { padding: 16px; }
+      .hero { width: 94%; }
+      .tabs { left: 20px; top: -36px; }
+      .search-card { width: 100%; padding: 14px; flex-direction: column; gap: 12px; align-items: stretch; }
+      .search-button { width: 100%; min-width: unset; }
+      .field { padding: 8px 6px; }
+      .headline { font-size: clamp(32px, 8.5vw, 56px); text-align: left; }
+      .contact { left: 20px; bottom: 22px; }
+    }
+
+    @media (max-width: 560px) {
+      .headline { font-size: clamp(28px, 10.5vw, 44px); }
+      .subcopy { font-size: 14px; }
+      nav a { margin: 0 10px; font-size: 13px; }
+      .auth-buttons .signup, .auth-buttons .login { padding: 6px 12px; font-size: 13px; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <div class="logo">Travel Agency</div>
     <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Tours</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Tour List</a>
+      <a href="#">Tour Search</a>
     </nav>
+    <div class="auth-buttons">
+      <button class="signup">Signup</button>
+      <button class="login">Login</button>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Explore the Philippines</h1>
-      <p>Discover the beauty of Luzon, Visayas, and Mindanao</p>
-      <a href="#" class="btn">Book Now</a>
-    </div>
-  </section>
+  <div class="hero-wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="tagline">Book With Us!</div>
+      <h1 id="hero-title" class="headline">DISCOVER YOUR NEXT<br>ADVENTURE IN <span class="yellow">LUZON</span></h1>
+      <div class="subcopy">We live in a world that is full of beauty, charm and adventure. There is no end to the adventures we can have if only we seek them with our eyes open.</div>
+
+      <div class="card-wrap">
+        <div class="tabs" role="tablist" aria-label="search tabs">
+          <button class="active" aria-selected="true">Flight</button>
+          <button aria-selected="false">Hotels</button>
+          <button aria-selected="false">Rent</button>
+        </div>
+
+        <div class="search-card" role="region" aria-label="search card">
+          <div class="field">
+            <span class="label">Destination?</span>
+            <span class="value">Maldives</span>
+          </div>
+          <div class="field">
+            <span class="label">When Start?</span>
+            <span class="value">10 December 2022</span>
+          </div>
+          <div class="field">
+            <span class="label">Peoples?</span>
+            <span class="value">5 Peoples</span>
+          </div>
+          <button class="search-button" aria-label="Search now">Search Now</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="contact" aria-hidden="false">
+    CONTACT US!
+    <div class="phone">+69 012 3456789</div>
+    <div class="addr">123 Makati Avenue, Salcedo Village,<br/>Makati City, 1226, Philippines</div>
+  </div>
 </body>
 </html>
