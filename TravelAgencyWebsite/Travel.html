@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luzon Travel Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&family=Poppins:wght@400;600&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent-blue: #3a85ff;
+      --accent-blue-2: #2e63d6;
+      --accent-yellow: #ffcc00;
+      --dark-blue: #004080;
+      --light-blue: #36cee5;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Poppins',sans-serif;scroll-behavior:smooth;color:#333;}
+
+    header{
+      position:fixed;top:0;left:0;right:0;
+      display:flex;justify-content:space-between;align-items:center;
+      background:var(--light-blue);padding:16px 48px;z-index:1000;
+    }
+    header nav a{
+      margin:0 16px;text-decoration:none;color:white;font-weight:600;
+    }
+    header nav a:hover{text-decoration:underline;}
+    .auth-buttons button{
+      margin-left:10px;padding:8px 16px;border:none;
+      border-radius:20px;cursor:pointer;font-weight:600;
+    }
+    .signup{background:#fff;color:#111;}
+    .login{background:var(--dark-blue);color:#fff;}
+
+    section{min-height:100vh;padding-top:80px;}
+
+    #home{
+      background:url("images/luzon.jpg") no-repeat center/cover;
+      display:flex;align-items:center;justify-content:center;
+      text-align:left;color:white;position:relative;
+    }
+    .hero{width:min(1100px,94%);}
+    .tagline{font-weight:600;font-size:18px;}
+    .headline{
+      font-family:'Stardos Stencil',serif;
+      font-size:clamp(36px,6vw,64px);line-height:1;
+      margin:12px 0;text-shadow:0 4px 12px rgba(0,0,0,0.5);
+    }
+    .headline .yellow{color:var(--accent-yellow);}
+    .subcopy{font-size:16px;max-width:700px;margin-bottom:24px;}
+    .search-card{
+      background:#fff;color:#111;border-radius:12px;padding:18px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.25);
+      display:flex;gap:16px;max-width:800px;
+    }
+    .field{flex:1;display:flex;flex-direction:column;}
+    .label{font-size:14px;font-weight:700;color:#333;margin-bottom:5px;}
+    .value{font-size:15px;font-weight:600;color:#666;padding:8px;border:1px solid #ccc;border-radius:6px;}
+    .search-button{
+      background:linear-gradient(180deg,var(--accent-blue),var(--accent-blue-2));
+      color:#fff;border:none;padding:12px 20px;border-radius:10px;
+      font-weight:700;cursor:pointer;
+    }
+    .contact{
+      position:absolute;left:48px;bottom:36px;font-weight:700;font-size:16px;color:var(--accent-yellow);
+    }
+    .contact .phone,.contact .addr{color:#fff;font-size:14px;}
+
+    #booking{background:url("images/bg.jpg") center/cover fixed;padding:100px 20px;text-align:center;color:#fff;}
+    #booking h1{color:#fff;font-size:42px;margin-bottom:10px;}
+    #booking .subtitle{margin-bottom:30px;font-size:18px;}
+    .booking-form{
+      background:rgba(255,255,255,0.9);padding:30px;border-radius:15px;
+      max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);color:#111;
+    }
+    label{text-align:left;font-weight:600;}
+    input,select,button{
+      padding:10px;border:1px solid #ccc;border-radius:6px;font-size:14px;
+    }
+    button{background:var(--dark-blue);color:white;cursor:pointer;font-weight:600;}
+    button:hover{background:var(--accent-blue-2);}
+
+    #packages{padding:100px 20px;background:url("images/header-bg.jpg") center/cover fixed;text-align:center;color:#111;}
+    #packages h1{font-size:40px;margin-bottom:20px;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,0.6);}
+    .packages{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
+    .package-card{
+      background:rgba(255,255,255,0.9);border-radius:12px;padding:20px;width:300px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.3s ease;
+    }
+    .package-card:hover{transform:scale(1.05);}
+    .package-card img{width:100%;height:180px;object-fit:cover;border-radius:10px;}
+    .package-card h2{margin:15px 0 10px;color:var(--accent-blue);}
+    .package-card p{font-size:14px;color:#333;}
+    .price-btn{
+      display:inline-block;margin-top:15px;padding:10px 20px;
+      background:var(--accent-yellow);color:#111;text-decoration:none;border-radius:20px;font-weight:600;
+    }
+    .price-btn:hover{background:#e6b800;}
+
+    #search{
+      background:url("images/mayon.jpg") center/cover fixed;
+      color:#fff;text-align:center;padding:120px 20px;
+    }
+    #search h1{font-family:'Protest Guerrilla',sans-serif;font-size:48px;text-shadow:2px 2px 6px rgba(0,0,0,0.6);}
+    #search h2{font-size:20px;margin-bottom:30px;text-shadow:1px 1px 4px rgba(0,0,0,0.4);}
+    .search-bar{
+      background:rgba(255,255,255,0.85);margin:30px auto;padding:20px 30px;
+      border-radius:15px;width:95%;max-width:950px;box-shadow:0 4px 20px rgba(0,0,0,0.15);color:#111;
+    }
+    .search-bar form{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .search-field{flex:1;min-width:180px;display:flex;flex-direction:column;font-size:14px;}
+    .search-field label{font-weight:600;margin-bottom:3px;}
+    .search-field select,.search-field input{
+      padding:10px 12px;border-radius:8px;border:1px solid #ddd;font-size:14px;
+    }
+    .search-btn{
+      background:#007bff;color:#fff;font-weight:bold;padding:15px 25px;border:none;border-radius:12px;
+      cursor:pointer;transition:background 0.3s ease;flex-shrink:0;
+    }
+    .search-btn:hover{background:#0056b3;}
+
+    footer{background:var(--light-blue);color:white;text-align:center;padding:20px;}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#booking">Booking</a>
+      <a href="#packages">Packages</a>
+      <a href="#search">Tour Search</a>
+    </nav>
+    <div class="auth-buttons">
+      <button class="signup">Signup</button>
+      <button class="login">Login</button>
+    </div>
+  </header>
+
+  <section id="home">
+    <div class="hero">
+      <div class="tagline">Book With Us!</div>
+      <h1 class="headline">DISCOVER YOUR NEXT<br>ADVENTURE IN <span class="yellow">LUZON</span></h1>
+      <div class="subcopy">We live in a world full of beauty, charm and adventure. There is no end to the adventures we can have if only we seek them with our eyes open.</div>
+      <form class="search-card" action="#search">
+        <div class="field">
+          <label class="label">Destination?</label>
+          <select class="value" required>
+            <option value="">Choose Destination</option>
+            <option>Banaue</option>
+            <option>Hundred Islands</option>
+            <option>Mayon Volcano</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label">When Start?</label>
+          <input type="date" class="value" required>
+        </div>
+        <div class="field">
+          <label class="label">People?</label>
+          <select class="value" required>
+            <option>1 Person</option>
+            <option>2 People</option>
+            <option>3 People</option>
+            <option>4+ People</option>
+          </select>
+        </div>
+        <button type="submit" class="search-button">Search Now</button>
+      </form>
+    </div>
+    <div class="contact">
+      CONTACT US!
+      <div class="phone">+63 912 3456789</div>
+      <div class="addr">123 Makati Avenue, Makati City</div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h1>THE TRIP OF YOUR DREAM</h1>
+    <p class="subtitle">Please enter your traveler details below to confirm your booking!</p>
+    <form class="booking-form">
+      <label for="name">Passenger Name:</label>
+      <input type="text" id="name" placeholder="Enter full name" required>
+      <label for="address">Passenger Address:</label>
+      <input type="text" id="address" placeholder="Enter address" required>
+      <label for="from">From:</label>
+      <select id="from" required>
+        <option value="">Select City</option>
+        <option>Manila</option><option>Clark</option><option>Legazpi</option><option>Laoag</option>
+      </select>
+      <label for="to">To:</label>
+      <select id="to" required>
+        <option value="">Select Destination</option>
+        <option>Baguio</option><option>Vigan</option><option>Ilocos</option><option>Palawan</option>
+      </select>
+      <label for="date">Departure Date:</label>
+      <input type="date" id="date" required>
+      <label for="return">Return Date:</label>
+      <input type="date" id="return">
+      <label for="passengers">Passengers:</label>
+      <input type="number" id="passengers" min="1" max="10" value="1" required>
+      <button type="submit">Book Flight</button>
+    </form>
+  </section>
+
+  <section id="packages">
+    <h1>Tour Packages</h1>
+    <div class="packages">
+      <div class="package-card">
+        <img src="images/banaue.jpg" alt="Banaue">
+        <h2>Banaue & Sagada Serenity Escape</h2>
+        <p>Trek through Banaue rice terraces and explore Sagada’s caves and hanging coffins.</p>
+        <a href="#booking" class="price-btn">₱8,500/person</a>
+      </div>
+      <div class="package-card">
+        <img src="images/hundredislands.jpg" alt="Hundred Islands">
+        <h2>Hundred Islands Adventure</h2>
+        <p>Island hopping, snorkeling, kayaking, and beach picnics at Hundred Islands.</p>
+        <a href="#booking" class="price-btn">₱3,600/person</a>
+      </div>
+      <div class="package-card">
+        <img src="images/mayon.jpg" alt="Mayon Volcano">
+        <h2>Majestic Mayon Volcano</h2>
+        <p>Discover the perfect cone of Mayon with ATV rides and scenic outdoor fun.</p>
+        <a href="#booking" class="price-btn">₱6,200/person</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="search">
+    <h1>Find Your Perfect <span class="highlight">Adventure</span></h1>
+    <h2>Search by destination, type, budget, or duration</h2>
+    <div class="search-bar">
+      <form>
+        <div class="search-field">
+          <label>Destination?</label>
+          <select>
+            <option value="">Choose Destination</option>
+            <option>Banaue</option>
+            <option>Hundred Islands</option>
+            <option>Mayon Volcano</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label>When Start?</label>
+          <input type="date"/>
+        </div>
+        <div class="search-field">
+          <label>Peoples?</label>
+          <select>
+            <option>1 Person</option>
+            <option>2 People</option>
+            <option>3 People</option>
+            <option>4+ People</option>
+          </select>
+        </div>
+        <button type="submit" class="search-btn">Search Now</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Luzon Travel Agency | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
