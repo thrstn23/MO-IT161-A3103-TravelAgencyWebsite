@@ -128,6 +128,7 @@
   </style>
 </head>
 <body>
+  <!--
   <header>
     <nav>
       <a href="#home">Home</a>
@@ -140,6 +141,30 @@
       <button class="login">Login</button>
     </div>
   </header>
+-->
+
+<nav class="navbar navbar-expand-lg" style= "background: var(--light-blue);position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 48px;">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-bold" href="#">Luzon Travel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"></button>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#booking">Booking</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#packages">Packages</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-semibold" href="#search">Tour Search</a></li>
+      </ul>
+
+      <div class="auth-buttons d-flex">
+        <button class="signup">Signup</button>
+        <button class="login">Login</button>
+      </div>
+    </div>
+  </div>
+</nav>
 
   <section id="home">
     <div class="hero">
